@@ -1,46 +1,51 @@
 package com.blz.linecomparsn;
 
-import java.util.Scanner;
+import java.util.Objects;
 
 public class Linecomparsn {
+    //Declaring and Initializing the variables
+        static double x1 = 2;
+        static double x2 = 4;
+        static double y1 = 6;
+        static double y2 = 12;
+        static double x3 = 2;
+        static double x4 = 4;
+        static double y3 = 6;
+        static double y4 = 10;
+        String lengthOfLine2 = " ";
+        String lengthOfLine1 = " ";
+
     public static void main(String[] args) {
-        double x1, x2, y1, y2;
-        double distance1;
-        Scanner scan= new Scanner(System.in);
-        x1 = 0;
-        y1 = 0;
-        x2 = 0;
-        y2 = 0;
-        System.out.println("enter x1 coordinates");
-        x1 = scan.nextInt();
-        System.out.println("enter y1 coordinates");
-        y1 = scan.nextInt();
-        System.out.println("enter x2 coordinates");
-        x2 = scan.nextInt();
-        System.out.println("enter y2 coordinates");
-        x2 = scan.nextInt();
-        System.out.println();
-        distance1 = Math.sqrt(Math.pow(x1 - x2, 2) + (Math.pow(y1 - y2, 2)));
-        System.out.println("The distance" + distance1);
 
-        //case-2 line-2 check equality of lines
-        System.out.println();
-        double p1, p2, q1, q2;
-        x1 = 0;
-        y1 = 0;
-        x2 = 0;
-        y2 = 0;
-        System.out.println("enter p1 coordinates");
-        p1 = scan.nextInt();
-        System.out.println("enter q1 coordinates");
-        q1 = scan.nextInt();
-        System.out.println("enter p2 coordinates");
-        p2 = scan.nextInt();
-        System.out.println("enter q2 coordinates");
-        q2 = scan.nextInt();
-        double distance2 = Math.sqrt(Math.pow(p1 - p2, 2) + (Math.pow(q1 - q2, 2)));
-        System.out.println("The distance" + distance2);
-        scan.close();
 
+        Linecomparsn method = new Linecomparsn();
+        method.lengthCalculation(); // Call method to calculate lengths of two lines
+        method.useEqualsMethod(); // Call method to check equality of lines
+        method.useCompareToMethod(); // Call method to compare length
+    }
+
+
+    private void lengthCalculation() {
+        //Use Math function to calculate length of line
+        lengthOfLine1 = String.valueOf(Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
+        lengthOfLine2 = String.valueOf(Math.sqrt(Math.pow((x4 - x3), 2) + Math.pow((y4 - y3), 2)));
+        System.out.println("Length Of Line1 = " + lengthOfLine1);
+        System.out.println("Length Of Line2 = " + lengthOfLine2);
+    }
+
+    private void useEqualsMethod() {
+        //Use Equals method to check equality of two lines
+        if (lengthOfLine1.equals(lengthOfLine2)) {
+            System.out.println("Length of two lines are equal");
+        } else {
+            System.out.println("Length of two lines are different");
+        }
+    }
+
+    private void useCompareToMethod() {
+
+        //Using compareTo method compare two lines
+        double diff = (lengthOfLine1.compareTo(lengthOfLine2));
+        System.out.println("Differance between two lines = " + diff);
     }
 }
